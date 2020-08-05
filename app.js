@@ -16,13 +16,15 @@ const buildCounter = () => {
                         <h3 class="counter--header">${counters[i].name}</h3>
                         <div class="counter--value value--${[i]}"">${counters[i].value}</div>
                         <div class="counter--buttons">
-                            <button id="decrease-${[i]}">Decrease</button>
+                            <button id="decrease-by-5-${[i]}">-5</button>
+                            <button id="decrease-${[i]}">-1</button>
                             <button id="reset-${[i]}">Reset</button>
-                            <button id="increase-${[i]}">Increase</button>
+                            <button id="increase-${[i]}">+1</button>
+                            <button id="increase-by-5-${[i]}">+5</button>
                         </div>
                         <div class="player--button">
                             <input type="text" class="name--input" id="name-input-${[i]}" placeholder="Player Name">
-                            <button id="player-${[i]}">Change Name</button>
+                            <button class="name--button" id="player-${[i]}">Change Name</button>
                         </div>
                         <div id="name-input-${[i]}">
                         </div>
@@ -48,6 +50,16 @@ const changeColor = () => {
     }
 }
 
+const decreaseBy5 = (e) => {
+    const target = e.target.id;
+    for (let i = 0; i < counters.length; i++){
+        if (target === `decrease-by-5-${[i]}`){
+            counters[i].value -= 5;
+        }
+    }
+    init();
+}
+
 const decreaseCounter = (e) => {
     const target = e.target.id;
     for (let i = 0; i < counters.length; i++){
@@ -63,6 +75,16 @@ const increaseCounter = (e) => {
     for (let i = 0; i < counters.length; i++){
         if (target === `increase-${[i]}`){
             counters[i].value += 1;
+        }
+    }
+    init();
+}
+
+const increaseBy5 = (e) => {
+    const target = e.target.id;
+    for (let i = 0; i < counters.length; i++){
+        if (target === `increase-by-5-${[i]}`){
+            counters[i].value += 5;
         }
     }
     init();
@@ -114,8 +136,10 @@ const changeName = (e) => {
 
 const buttonEvent = () => {
     for (let i = 0; i < counters.length; i++){ 
+    document.querySelector(`#decrease-by-5-${[i]}`).addEventListener('click', decreaseBy5);
     document.querySelector(`#decrease-${[i]}`).addEventListener('click', decreaseCounter);
     document.querySelector(`#increase-${[i]}`).addEventListener('click', increaseCounter);
+    document.querySelector(`#increase-by-5-${[i]}`).addEventListener('click', increaseBy5);
     document.querySelector(`#reset-${[i]}`).addEventListener('click', resetCounter);
     document.querySelector(`#player-${[i]}`).addEventListener('click', changeName);
     }
