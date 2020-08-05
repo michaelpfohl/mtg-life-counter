@@ -1,13 +1,13 @@
 'use strict';
 
-let counterValue = 0;
-
 let counters = [
     {
-        value: 0,
+        value: 20,
         name: 'counter'
     }
 ];
+
+let commander = false;
 
 const buildCounter = () => {
     let domString = '';
@@ -65,15 +65,25 @@ const increaseCounter = (e) => {
 const resetCounter = (e) => {
     const target = e.target.id;
     for (let i = 0; i < counters.length; i++){
-        if (target === `reset-${[i]}`){
-            counters[i].value = 0;
+        if (target === `reset-${[i]}` && commander === false){
+            counters[i].value = 20;
+        } else if (target === `reset-${[i]}` && commander === true){
+            counters[i].value = 40;
         }
     }
     init();
 }
 
 const addCounter = () => {
-    counters.push({value: 0, name: 'counter'})
+    counters.push({value: 20, name: 'counter'})
+    init();
+}
+
+const commanderMode = () => {
+    for (let i = 0; i < counters.length; i++){
+        counters[i].value = 40;
+        commander = true;
+    }
     init();
 }
 
@@ -84,6 +94,7 @@ const buttonEvent = () => {
     document.querySelector(`#reset-${[i]}`).addEventListener('click', resetCounter);
     }
     document.querySelector('#addCounter').addEventListener('click', addCounter);
+    document.querySelector('#commander').addEventListener('click', commanderMode);
 }
 
 const init = () => {
