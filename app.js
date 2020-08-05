@@ -3,7 +3,7 @@
 let counters = [
     {
         value: 20,
-        name: 'counter'
+        name: 'player'
     }
 ];
 
@@ -19,6 +19,12 @@ const buildCounter = () => {
                             <button id="decrease-${[i]}">Decrease</button>
                             <button id="reset-${[i]}">Reset</button>
                             <button id="increase-${[i]}">Increase</button>
+                        </div>
+                        <div class="player--button">
+                            <input type="text" class="name--input" id="name-input-${[i]}" placeholder="Player Name">
+                            <button id="player-${[i]}">Change Name</button>
+                        </div>
+                        <div id="name-input-${[i]}">
                         </div>
                     </div>`;
     }
@@ -75,7 +81,7 @@ const resetCounter = (e) => {
 }
 
 const addCounter = () => {
-    counters.push({value: 20, name: 'counter'})
+    counters.push({value: 20, name: 'player'})
     init();
 }
 
@@ -95,11 +101,23 @@ const standardMode = () => {
     init();
 }
 
+const changeName = (e) => {
+    const target = e.target.id;
+    for (let i = 0; i < counters.length; i++){
+        if (target === `player-${[i]}`){
+            const name = document.querySelector(`#name-input-${[i]}`).value;
+            counters[i].name = name;
+        }
+    }
+    init();
+}
+
 const buttonEvent = () => {
     for (let i = 0; i < counters.length; i++){ 
     document.querySelector(`#decrease-${[i]}`).addEventListener('click', decreaseCounter);
     document.querySelector(`#increase-${[i]}`).addEventListener('click', increaseCounter);
     document.querySelector(`#reset-${[i]}`).addEventListener('click', resetCounter);
+    document.querySelector(`#player-${[i]}`).addEventListener('click', changeName);
     }
     document.querySelector('#addCounter').addEventListener('click', addCounter);
     document.querySelector('#commander').addEventListener('click', commanderMode);

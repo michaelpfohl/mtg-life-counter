@@ -37,7 +37,7 @@ body {
     border: 5px solid #DAA588;
     width: 30%;
     height: 50%;
-    margin: 5%;
+    margin: 4%;
 }
 
 .counter--header {
@@ -59,4 +59,18 @@ body {
 
 .counter--buttons button {
     background: none;
+}
+
+.player--button {
+    margin: 3%;
+}
+
+.player--button button {
+    background: none;
+}
+
+.name--input {
+    border: 1px solid #DAA588;
+    background: none;
+    text-align: center;
 }
