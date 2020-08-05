@@ -8,16 +8,17 @@ body {
     background: #28262C;
 }
 
-.add-counter--container {
+.main-buttons--container {
     display: flex;
     justify-content: center;
     margin-top: 3%;
 }
 
-.add-counter--button {
+.main--buttons {
     background: none;
     border: 3px solid #DAA588;
     font-size: 30px;
+    margin: 0 6%;
 }
 
 .counter--container {
