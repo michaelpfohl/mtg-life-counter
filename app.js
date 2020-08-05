@@ -7,7 +7,7 @@ let counters = [
     }
 ];
 
-let commander = false;
+let format = 'standard';
 
 const buildCounter = () => {
     let domString = '';
@@ -65,9 +65,9 @@ const increaseCounter = (e) => {
 const resetCounter = (e) => {
     const target = e.target.id;
     for (let i = 0; i < counters.length; i++){
-        if (target === `reset-${[i]}` && commander === false){
+        if (target === `reset-${[i]}` && format === 'standard'){
             counters[i].value = 20;
-        } else if (target === `reset-${[i]}` && commander === true){
+        } else if (target === `reset-${[i]}` && format === 'commander'){
             counters[i].value = 40;
         }
     }
@@ -82,7 +82,15 @@ const addCounter = () => {
 const commanderMode = () => {
     for (let i = 0; i < counters.length; i++){
         counters[i].value = 40;
-        commander = true;
+        format = 'commander';
+    }
+    init();
+}
+
+const standardMode = () => {
+    for (let i = 0; i < counters.length; i++){
+        counters[i].value = 20;
+        format = 'standard';
     }
     init();
 }
@@ -95,6 +103,7 @@ const buttonEvent = () => {
     }
     document.querySelector('#addCounter').addEventListener('click', addCounter);
     document.querySelector('#commander').addEventListener('click', commanderMode);
+    document.querySelector('#standard').addEventListener('click', standardMode);
 }
 
 const init = () => {
