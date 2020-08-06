@@ -13,18 +13,18 @@ const buildCounter = () => {
     let domString = '';
     for (let i = 0; i < counters.length; i++){
         domString += `<div class="counter--card">
-                        <h3 class="counter--header">${counters[i].name}</h3>
+                        <h3 class="counter--header hover--blue">${counters[i].name}</h3>
                         <div class="counter--value value--${[i]}"">${counters[i].value}</div>
                         <div class="counter--buttons">
-                            <button id="decrease-by-5-${[i]}">-5</button>
-                            <button id="decrease-${[i]}">-1</button>
-                            <button id="reset-${[i]}">Reset</button>
-                            <button id="increase-${[i]}">+1</button>
-                            <button id="increase-by-5-${[i]}">+5</button>
+                            <button id="decrease-by-5-${[i]}" class="hover--red">-5</button>
+                            <button id="decrease-${[i]}" class="hover--red">-1</button>
+                            <button id="reset-${[i]}" class="hover--blue">Reset</button>
+                            <button id="increase-${[i]}" class="hover--green">+1</button>
+                            <button id="increase-by-5-${[i]}" class="hover--green">+5</button>
                         </div>
                         <div class="player--button">
                             <input type="text" class="name--input" id="name-input-${[i]}" placeholder="Player Name">
-                            <button class="name--button" id="player-${[i]}">Submit Name</button>
+                            <button class="name--button hover--blue" id="player-${[i]}">Submit Name</button>
                         </div>
                         <div id="name-input-${[i]}">
                         </div>
@@ -136,12 +136,12 @@ const changeName = (e) => {
 
 const buttonEvent = () => {
     for (let i = 0; i < counters.length; i++){ 
-    document.querySelector(`#decrease-by-5-${[i]}`).addEventListener('click', decreaseBy5);
-    document.querySelector(`#decrease-${[i]}`).addEventListener('click', decreaseCounter);
-    document.querySelector(`#increase-${[i]}`).addEventListener('click', increaseCounter);
-    document.querySelector(`#increase-by-5-${[i]}`).addEventListener('click', increaseBy5);
-    document.querySelector(`#reset-${[i]}`).addEventListener('click', resetCounter);
-    document.querySelector(`#player-${[i]}`).addEventListener('click', changeName);
+        document.querySelector(`#decrease-by-5-${[i]}`).addEventListener('click', decreaseBy5);
+        document.querySelector(`#decrease-${[i]}`).addEventListener('click', decreaseCounter);
+        document.querySelector(`#increase-${[i]}`).addEventListener('click', increaseCounter);
+        document.querySelector(`#increase-by-5-${[i]}`).addEventListener('click', increaseBy5);
+        document.querySelector(`#reset-${[i]}`).addEventListener('click', resetCounter);
+        document.querySelector(`#player-${[i]}`).addEventListener('click', changeName);
     }
     document.querySelector('#addCounter').addEventListener('click', addCounter);
     document.querySelector('#commander').addEventListener('click', commanderMode);

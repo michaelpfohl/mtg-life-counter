@@ -13,6 +13,18 @@ body {
     background: url(black_paper.png);
 }
 
+.hover--blue:hover {
+    color: #0051d4;
+}
+
+.hover--green:hover {
+    color: #008a29;
+}
+
+.hover--red:hover {
+    color: #8a0005;
+}
+
 .main-buttons--container {
     display: flex;
     justify-content: center;
