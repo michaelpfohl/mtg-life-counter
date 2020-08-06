@@ -20,7 +20,7 @@ body {
 }
 
 .main--buttons {
-    background: none;
+    background: rgba(255,255,255,0.05);
     border: 3px solid #fff;
     font-size: 30px;
     margin: 0 6%;
@@ -40,6 +40,7 @@ body {
 
 .counter--card {
     text-align: center;
+    background: rgba(255,255,255,0.05);
     border: 5px solid #fff;
     width: 30%;
     height: 50%;
