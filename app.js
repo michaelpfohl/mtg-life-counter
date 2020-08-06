@@ -24,7 +24,7 @@ const buildCounter = () => {
                         </div>
                         <div class="player--button">
                             <input type="text" class="name--input" id="name-input-${[i]}" placeholder="Player Name">
-                            <button class="name--button" id="player-${[i]}">Change Name</button>
+                            <button class="name--button" id="player-${[i]}">Submit Name</button>
                         </div>
                         <div id="name-input-${[i]}">
                         </div>
@@ -41,11 +41,11 @@ const printToDom = (divId, textToPrint) => {
 const changeColor = () => {
     for (let i = 0; i < counters.length; i++){
         if (counters[i].value === 0) {
-            document.querySelector(`.value--${[i]}`).style.color = '#DAA588';
+            document.querySelector(`.value--${[i]}`).style.color = '#fff';
         } else if (counters[i].value < 0) {
-            document.querySelector(`.value--${[i]}`).style.color = '#F56960';
+            document.querySelector(`.value--${[i]}`).style.color = '#8a0005';
         } else if (counters[i].value > 0) {
-            document.querySelector(`.value--${[i]}`).style.color = '#9DCBBA';
+            document.querySelector(`.value--${[i]}`).style.color = '#008a29';
         }
     }
 }
