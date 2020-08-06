@@ -26,6 +26,9 @@ const buildCounter = () => {
                             <input type="text" class="name--input" id="name-input-${[i]}" placeholder="Player Name">
                             <button class="name--button hover--blue" id="player-${[i]}">Submit Name</button>
                         </div>
+                        <div id="remove-${[i]}">
+                            <button id="${[i]}" type="button" class="remove--button hover--red">Remove Player</button>
+                        </div>
                         <div id="name-input-${[i]}">
                         </div>
                     </div>`;
@@ -134,6 +137,15 @@ const changeName = (e) => {
     init();
 }
 
+const removePlayer = (e) => {
+    const ctype = e.target.type;
+    const target = e.target.id;
+    if (ctype === 'button'){
+        counters.splice(target, 1);
+        init();
+    }
+}
+
 const buttonEvent = () => {
     for (let i = 0; i < counters.length; i++){ 
         document.querySelector(`#decrease-by-5-${[i]}`).addEventListener('click', decreaseBy5);
@@ -142,6 +154,7 @@ const buttonEvent = () => {
         document.querySelector(`#increase-by-5-${[i]}`).addEventListener('click', increaseBy5);
         document.querySelector(`#reset-${[i]}`).addEventListener('click', resetCounter);
         document.querySelector(`#player-${[i]}`).addEventListener('click', changeName);
+        document.querySelector(`#remove-${[i]}`).addEventListener('click', removePlayer);
     }
     document.querySelector('#addCounter').addEventListener('click', addCounter);
     document.querySelector('#commander').addEventListener('click', commanderMode);

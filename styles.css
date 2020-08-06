@@ -100,3 +100,9 @@ body {
 .name--button {
     border: 1px solid #fff;
 }
+
+.remove--button {
+    border: 1px solid #fff;
+    background: none;
+    margin-bottom: 4%;
+}
