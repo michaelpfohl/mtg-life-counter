@@ -1,11 +1,16 @@
 * {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Beleren', sans-serif;
     text-transform: uppercase;
-    color: #DAA588;
+    color: #fff;
+}
+
+@font-face {
+    font-family: 'Beleren';
+    src: url(Beleren2016-Bold.ttf);
 }
 
 body {
-    background: #28262C;
+    background: url(black_paper.png);
 }
 
 .main-buttons--container {
@@ -16,9 +21,10 @@ body {
 
 .main--buttons {
     background: none;
-    border: 3px solid #DAA588;
+    border: 3px solid #fff;
     font-size: 30px;
     margin: 0 6%;
+    padding: 10px;
 }
 
 .format-buttons--container {
@@ -34,7 +40,7 @@ body {
 
 .counter--card {
     text-align: center;
-    border: 5px solid #DAA588;
+    border: 5px solid #fff;
     width: 30%;
     height: 50%;
     margin: 4%;
@@ -42,8 +48,8 @@ body {
 
 .counter--header {
     font-size: 70px;
-    text-decoration: underline;
     margin: 0;
+    padding-top: 20px;
 }
 
 .counter--value {
@@ -59,7 +65,7 @@ body {
 
 .counter--buttons button {
     background: none;
-    border: 1px solid #DAA588;
+    border: 1px solid #fff;
     padding: 5px 10px;
     font-size: 20px;
 }
@@ -73,11 +79,11 @@ body {
 }
 
 .name--input {
-    border: 1px solid #DAA588;
+    border: 1px solid #fff;
     background: none;
     text-align: center;
 }
 
 .name--button {
-    border: 1px solid #DAA588;
+    border: 1px solid #fff;
 }
